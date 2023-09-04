@@ -1,3 +1,3 @@
-# THIS FILE CONTAINS THE TASKS '0x00. Python - Hello, World'
+# THIS DIRECTORY CONTAINS THE TASKS FILE FOR 0x00. Python - Hello, World
 
 
