@@ -1,0 +1,4 @@
+#!/bin/bash
+TMP_FILE=$(mktemp)
+echo "$PYCODE" > "$TMP_FILE"
+python3 "$TMP_FILE"
