@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from add_0 import add
+import add_0
 a = 1
 b = 2
-add_result = add(a, b)
-print(F"{a:d} + {b:d} = {add_result:d}")
+add_result = add_0.add(1, 2)
+print(F"{a} + {b} = {add_result}")
