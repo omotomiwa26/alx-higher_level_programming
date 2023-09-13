@@ -5,7 +5,7 @@ if __name__ == "__main__":
     b = 5
 
     add_result = add(a, b)
-    sub_result = sub(a, b)
+    sub_result = sub(a, b)  
     mul_result = mul(a, b)
     div_result = div(a, b)
 
