@@ -2,27 +2,23 @@
 if __name__ == "__main__":
     from calculator_2 import add, sub, mul, div
     from sys import argv, exit
-
+    operator = {
+        '+': add,
+        '-': sub,
+        '*': mul,
+        '/': div,
+    }
+    
     if len(argv) != 4:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: {:s} <a> <operator> <b>".format(argv[0]))
         exit(1)
 
     a = int(argv[1])
-    operator = argv[2]
+    operand = argv[2]
     b = int(argv[3])
 
-    if operator == "+":
-        result = add(a, b)
-        print("{:d} {} {:d} = {:d}".format(a, operator, b, result))
-    elif operator == "-":
-        result = sub(a, b)
-        print("{:d} {} {:d} = {:d}".format(a, operator, b, result))
-    elif operator == "*":
-        result = mul(a, b)
-        print("{:d} {} {:d} = {:d}".format(a, operator, b, result))
-    elif operator == "/":
-        result = div(a, b)
-        print("{:d} {} {:d} = {:d}".format(a, operator, b, result))
-    else:
+    if operand not in operator:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
+    result = operator[operand](a, b)
+    print("{:d} {:s} {:d} = {:d}".format(a, operand, b, result))

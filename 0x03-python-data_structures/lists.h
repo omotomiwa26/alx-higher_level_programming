@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_SIZE 1000
+#define MAX_SIZE 1200
 
 /**
  * struct listint_s - singly linked list
