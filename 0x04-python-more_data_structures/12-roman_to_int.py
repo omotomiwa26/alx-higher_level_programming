@@ -21,4 +21,3 @@ def roman_to_int(roman_string):
         numeral_result += numeral
 
     return numeral_result
- 
