@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def raise_exception():
     try:
-        raise BufferError("Ooops!, Cannot Read Buffer")
+        raise TypeError("Ooops!, Invalid Type")
     except BufferError as e:
-        print("Buffer Error Handled")
+        print("BufferError Handled")
