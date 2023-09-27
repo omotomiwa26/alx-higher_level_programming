@@ -2,7 +2,7 @@
 """This is a file that define and empty class"""
 
 
-class square:
+class Square:
     """This is an empty class tha defines a sqaure.
 
        This class takes no attribute for now.
