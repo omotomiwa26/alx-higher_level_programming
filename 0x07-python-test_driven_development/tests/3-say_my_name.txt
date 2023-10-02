@@ -10,7 +10,7 @@ My name is Layi Wasabi
 >>> say_my_name("Layi")
 My name is Layi
 
->>> say_my_name("","")
+>>> say_my_name("", "")
 My name is
 
 >>> say_my_name()
