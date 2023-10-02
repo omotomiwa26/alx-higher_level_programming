@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This function adds two interger numbers
+    This module adds two integer numbers
     and returns the integer result
 """
 
