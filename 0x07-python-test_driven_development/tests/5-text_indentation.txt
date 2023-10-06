@@ -8,6 +8,10 @@
 >>> text_indentation(test_str)
 Quonam modo
 
+>>> test_str = "Quonam modo"
+>>> text_indentation(test_str)
+Quonam modo
+
 >>> test_str = ""
 >>> text_indentation()
 Traceback (most recent call last):
