@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    This module defines a function 
+    This module defines a function
     that prints a saqaure with the character #
 """
 
@@ -19,4 +19,3 @@ def print_square(size):
 
     for _ in range(size):
         print('#' * size)
- 
