@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-""" 
+"""
     This module checks a given text and prints
-    two new lines after each of the following 
+    two new lines after each of the following
     characters ".", "?", ":"
 """
-
 
 
 def text_indentation(text):
