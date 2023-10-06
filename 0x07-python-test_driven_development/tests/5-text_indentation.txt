@@ -1,0 +1,25 @@
+# Import module
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test cases for 4. Text indentation
+
+>>> test_str = "Quonam modo?"
+>>> text_indentation(test_str)
+Quonam modo
+
+>>> test_str = ""
+>>> text_indentation()
+Traceback (most recent call last):
+    ....
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+>>> test_str = ""
+>>> text_indentation(test_str)
+
+>>> test_str = 12
+>>> text_indentation(test_str)
+Traceback (most recent call last):
+    ....
+TypeError: text must be a string
+
