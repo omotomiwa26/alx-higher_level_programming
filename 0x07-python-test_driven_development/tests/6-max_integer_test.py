@@ -9,6 +9,8 @@ class TestMaxInteger(unittest.TestCase):
     def test_max(self):
     # Test if it returns the maximum number in the given list
         self.assertAlmostEqual(max_integer([1, 2, 3, 4]), 4)
+        self.assertAlmostEqual(max_integer([-1, -2, -3, -4]), -1)
+        self.assertAlmostEqual(max_integer([2]), 2)
         self.assertAlmostEqual(max_integer([5, 6, 7, 8]), 8)
         self.assertAlmostEqual(max_integer([-2.0, 6.8, 7.5, -8.2]), 7.5)
         self.assertAlmostEqual(max_integer([-2.0, 6, 7, 8.9]), 8.9)
