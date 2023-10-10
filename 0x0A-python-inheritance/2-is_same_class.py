@@ -11,5 +11,9 @@ def is_same_class(obj, a_class):
     Define and initialize the oblects
     in class
     """
-
-    return isinstance(obj, a_class)
+    if isinstance(obj, a_class):
+        if issubclass(type(obj), a_class):
+            return False
+        return True
+    else:
+        return False
