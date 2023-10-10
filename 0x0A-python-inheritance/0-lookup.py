@@ -15,7 +15,4 @@ def lookup(obj):
     attributes = [attr for attr in all_attributes if not
                   callable(getattr(obj, attr))]
 
-    return {
-        "attributes": attributes,
-        "methods": methods
-    }
+    return all_attributes
