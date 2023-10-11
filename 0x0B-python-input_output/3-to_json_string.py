@@ -11,4 +11,5 @@ def to_json_string(my_obj):
     Define and initialise the JSON
     object
     """
-    return j.dumps(my_obj)
+    json_strings = j.dumps(my_obj)
+    return json_strings
