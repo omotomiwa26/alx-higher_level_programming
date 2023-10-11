@@ -3,6 +3,8 @@
 This module initializes a Student instance
 with first_name, last_name, and age.
 """
+
+
 class Student:
     """
     Defining and initialising the student class
@@ -17,14 +19,14 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-    
+
     def to_json(self):
         """
         Retrieve a dictionary representation
         of a Student instance.
 
         Returns:
-            dict: A dictionary containing the attributes 
+            dict: A dictionary containing the attributes
             of the Student instance.
         """
         return self.__dict__
