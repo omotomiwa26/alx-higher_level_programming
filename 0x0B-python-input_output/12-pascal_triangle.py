@@ -20,7 +20,7 @@ def pascal_triangle(n):
     if n <= 0:
         return []
 
-    pascal_triangle = []
+    p_tri = []
 
     for x in range(n):
         row = []
@@ -28,9 +28,8 @@ def pascal_triangle(n):
             if y == 0 or y == x:
                 row.append(1)
             else:
-                value = pascal_triangle[x - 1][y - 1]
-                + pascal_triangle[x - 1][y]
+                value = p_tri[x - 1][y - 1] + p_tri[x - 1][y]
                 row.append(value)
-        pascal_triangle.append(row)
+        p_tri.append(row)
 
-    return pascal_triangle
+    return p_tri
