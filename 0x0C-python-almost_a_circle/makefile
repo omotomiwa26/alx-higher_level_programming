@@ -1,8 +1,8 @@
 pep8_test:
-    pycodestyle tests/test_models/*.py
+	pycodestyle tests/test_models/*.py
 
 pep8_model:
-    pycodestyle models/*.py
+	pycodestyle models/*.py
 
 test_all:
 	python3 -m unittest discover tests
