@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-This is the base module 
+This is the base module
 for the project
 """
 
 
 class Base:
     """
-    Defining the base class with 
+    Defining the base class with
     private attributes
     """
 
@@ -15,8 +15,8 @@ class Base:
 
     def __init__(self, id=None):
         """
-        Define constructor with 
-        instance attribute 
+        Define constructor with
+        instance attribute
         """
 
         if id is not None:
