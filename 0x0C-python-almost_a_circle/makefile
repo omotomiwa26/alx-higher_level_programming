@@ -8,7 +8,7 @@ test_all:
 	python3 -m unittest discover tests
 
 test_base:
-python3 -m unittest tests/test_base.py
+	python3 -m unittest tests/test_base.py
 
 test_rectangle:
 	python3 -m unittest tests/test_rectangle.py
