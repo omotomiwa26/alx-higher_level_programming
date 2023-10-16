@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
 This module defines the class Rectangle
-that inherits from base 
+that inherits from base
 """
 
 
 from models.base import Base
+
 
 class Rectangle(Base):
     """
@@ -74,3 +75,28 @@ class Rectangle(Base):
             raise ValueError('y must be >= 0')
         self.__y = value
 
+    def area(self):
+        """
+        Define and return the area of
+        the rectangle.
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """
+        Define and prints to stdout with
+        the character '#' and then update
+        to take care of 'x' and 'y'
+        """
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(' ' * self.__x + '#' * self.__width)
+
+    def __str__(self):
+        """
+        Define and print
+        formatted string
+        """
+        return (F'[Rectangle] ({self.id}) {self.__x}/{self.__y} '
+                F'- {self.__width}/{self.__height}')
