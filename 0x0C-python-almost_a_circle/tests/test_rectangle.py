@@ -113,5 +113,51 @@ class TestFormatString(unittest.TestCase):
         self.assertEqual(str(rectangle_instance), "[Rectangle] (4) 1/1 - 3/2")
 
 
+class TestArgument(unittest.TestCase):
+    def test_with_invalid_args(self):
+        with self.assertRaises(TypeError):
+            rectangle_instance = Rectangle(1, 2, 8, 4, 10, 8)
+
+
+class TestUpadateArgs(unittest.TestCase):
+    def test_update_with_args_attr(self):
+        rectangle = Rectangle(1, 2, 3, 4, 5)
+        rectangle.update(5, 4, 3, 2, 1)
+        self.assertEqual(rectangle.id, 5)
+        self.assertEqual(rectangle.width, 4)
+        self.assertEqual(rectangle.height, 3)
+        self.assertEqual(rectangle.x, 2)
+        self.assertEqual(rectangle.y, 1)
+
+    def test_update_with_empty_args_attr(self):
+        rectangle = Rectangle(1, 2, 3, 4, 5)
+        rectangle.update()
+        self.assertEqual(rectangle.id, 5)
+        self.assertEqual(rectangle.width, 1)
+        self.assertEqual(rectangle.height, 2)
+        self.assertEqual(rectangle.x, 3)
+        self.assertEqual(rectangle.y, 4)
+
+
+class TestUpadateKwargs(unittest.TestCase):
+    def test_update_with_kwargs_attr(self):
+        rectangle = Rectangle(5, 4)
+        rectangle.update(id=1, x=2, y=3)
+        self.assertEqual(rectangle.id, 1)
+        self.assertEqual(rectangle.width, 5)
+        self.assertEqual(rectangle.height, 4)
+        self.assertEqual(rectangle.x, 2)
+        self.assertEqual(rectangle.y, 3)
+
+    def test_update_with_empty_kwargs_attr(self):
+        rectangle = Rectangle(5, 4)
+        rectangle.update()
+        self.assertEqual(rectangle.id, 3)
+        self.assertEqual(rectangle.width, 5)
+        self.assertEqual(rectangle.height, 4)
+        self.assertEqual(rectangle.x, 0)
+        self.assertEqual(rectangle.y, 0)
+
+
 if __name__ == '__main__':
     unittest.main()
