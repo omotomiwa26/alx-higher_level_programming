@@ -100,3 +100,32 @@ class Rectangle(Base):
         """
         return (F'[Rectangle] ({self.id}) {self.__x}/{self.__y} '
                 F'- {self.__width}/{self.__height}')
+
+    def update(self, *args, **kwargs):
+        """
+         Update the attributes of the Rectangle
+         using both *args and **kwargs.
+        Arguments:
+        - args: A tuple of arguments in the following order:
+            1. id attribute
+            2. width attribute
+            3. height attribute
+            4. x attribute
+            5. y attribute
+        - kwargs: A dictionary where each key
+        represents an attribute to update.
+        """
+        if args:
+            if len(args) > 0:
+                self.id = args[0]
+            if len(args) > 1:
+                self.width = args[1]
+            if len(args) > 2:
+                self.height = args[2]
+            if len(args) > 3:
+                self.x = args[3]
+            if len(args) > 4:
+                self.y = args[4]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
