@@ -5,6 +5,7 @@ Unittest for base models
 import unittest as u
 from models.base import Base
 
+
 class TestBase(u.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
@@ -64,12 +65,13 @@ class TestBase(u.TestCase):
         self.assertEqual(base_instance.id, "wasabi")
 
     def test_base_documented_module(self):
-        #Tests for the module docstring
+        # Tests for the module docstring
         self.assertTrue(len(__doc__) >= 2)
 
     def test_documented_class(self):
-        #Tests for the Base class docstring
+        # Tests for the Base class docstring
         self.assertTrue(len(Base.__doc__) >= 2)
+
 
 if __name__ == '__main__':
     u.main()
