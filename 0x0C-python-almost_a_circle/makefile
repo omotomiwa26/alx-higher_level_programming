@@ -4,6 +4,15 @@ pep8_test:
 pep8_model:
 	pycodestyle models/*.py
 
+pep8_rec:
+	pycodestyle models/rectangle.py
+
+pep8_squ:
+	pycodestyle models/square.py
+
+pep8_bas:
+	pycodestyle models/base.py
+
 test_all:
 	python3 -m unittest discover tests
 
