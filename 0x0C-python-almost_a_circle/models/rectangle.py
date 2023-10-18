@@ -6,6 +6,7 @@ that inherits from base
 
 
 from models.base import Base
+import json as j
 
 
 class Rectangle(Base):
@@ -129,3 +130,22 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Return a dictionary representation of the Rectangle.
+        Returns:
+        - A dictionary with the following keys:
+            - 'id': The id attribute of the Rectangle
+            - 'width': The width attribute of the Rectangle
+            - 'height': The height attribute of the Rectangle
+            - 'x': The x attribute of the Rectangle
+            - 'y': The y attribute of the Rectangle
+        """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
