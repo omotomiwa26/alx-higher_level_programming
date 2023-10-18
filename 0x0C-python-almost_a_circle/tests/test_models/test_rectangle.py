@@ -3,11 +3,12 @@
 Unittest for rectangle model
 """
 
-import unittest
+import unittest as u
 from models.rectangle import Rectangle
+from models.base import Base
 
 
-class TestRectangle(unittest.TestCase):
+class TestRectangle(u.TestCase):
     def test_rectangle_with_int_attributes(self):
         rectangle_instance = Rectangle(4, 5, 6, 7, 8)
         self.assertEqual(rectangle_instance.width, 4)
@@ -25,7 +26,7 @@ class TestRectangle(unittest.TestCase):
         self.assertIsNotNone(rectangle_instance.id)
 
 
-class TestWidth(unittest.TestCase):
+class TestWidth(u.TestCase):
     def test_with_float(self):
         with self.assertRaises(TypeError):
             rectangle_instance = Rectangle(4.3, 5, 6, 7, 8)
@@ -43,7 +44,7 @@ class TestWidth(unittest.TestCase):
             rectangle_instance = Rectangle(-2, 5, 6, 7, 8)
 
 
-class TestHeight(unittest.TestCase):
+class TestHeight(u.TestCase):
     def test_with_float(self):
         with self.assertRaises(TypeError):
             rectangle_instance = Rectangle(4, 5.1, 6, 7, 8)
@@ -61,7 +62,7 @@ class TestHeight(unittest.TestCase):
             rectangle_instance = Rectangle(6, -4, 6, 7, 8)
 
 
-class TestX(unittest.TestCase):
+class TestX(u.TestCase):
     def test_with_float(self):
         with self.assertRaises(TypeError):
             rectangle_instance = Rectangle(4, 5, 6.1, 7, 8)
@@ -79,7 +80,7 @@ class TestX(unittest.TestCase):
             rectangle_instance = Rectangle(2, 5, -6, 7, 8)
 
 
-class TestY(unittest.TestCase):
+class TestY(u.TestCase):
     def test_with_float(self):
         with self.assertRaises(TypeError):
             rectangle_instance = Rectangle(2, 5, 6, 4.3, 8)
@@ -97,7 +98,7 @@ class TestY(unittest.TestCase):
             rectangle_instance = Rectangle(2, 5, 6, -7, 8)
 
 
-class TestArea(unittest.TestCase):
+class TestArea(u.TestCase):
     def test_with_all_attributes(self):
         rectangle_instance = Rectangle(4, 5, 6, 7, 8)
         self.assertEqual(rectangle_instance.area(), 20)
@@ -107,19 +108,19 @@ class TestArea(unittest.TestCase):
         self.assertEqual(rectangle_instance.area(), 56)
 
 
-class TestFormatString(unittest.TestCase):
+class TestFormatString(u.TestCase):
     def test_with_string_attr(self):
         rectangle_instance = Rectangle(3, 2, 1, 1, 4)
         self.assertEqual(str(rectangle_instance), "[Rectangle] (4) 1/1 - 3/2")
 
 
-class TestArgument(unittest.TestCase):
+class TestArgument(u.TestCase):
     def test_with_invalid_args(self):
         with self.assertRaises(TypeError):
             rectangle_instance = Rectangle(1, 2, 8, 4, 10, 8)
 
 
-class TestUpadateArgs(unittest.TestCase):
+class TestUpadateArgs(u.TestCase):
     def test_update_with_args_attr(self):
         rectangle = Rectangle(1, 2, 3, 4, 5)
         rectangle.update(5, 4, 3, 2, 1)
@@ -139,7 +140,7 @@ class TestUpadateArgs(unittest.TestCase):
         self.assertEqual(rectangle.y, 4)
 
 
-class TestUpadateKwargs(unittest.TestCase):
+class TestUpadateKwargs(u.TestCase):
     def test_update_with_kwargs_attr(self):
         rectangle = Rectangle(5, 4)
         rectangle.update(id=1, x=2, y=3)
@@ -152,12 +153,26 @@ class TestUpadateKwargs(unittest.TestCase):
     def test_update_with_empty_kwargs_attr(self):
         rectangle = Rectangle(5, 4)
         rectangle.update()
-        self.assertEqual(rectangle.id, 3)
+        self.assertEqual(rectangle.id, 5)
         self.assertEqual(rectangle.width, 5)
         self.assertEqual(rectangle.height, 4)
         self.assertEqual(rectangle.x, 0)
         self.assertEqual(rectangle.y, 0)
 
 
+class TestRecDict(u.TestCase):
+    def test_with_all_dict_keys(self):
+        rectangle = Rectangle(5, 2, 3, 1)
+        dictionary = rectangle.to_dictionary()
+        rectangle_dict = {'id': 2, 'x': 3, 'y': 1, 'height': 2, 'width': 5}
+        self.assertEqual(dictionary, rectangle_dict)
+
+    def test_with_two_dict_keys(self):
+        rectangle = Rectangle(5, 2)
+        dictionary = rectangle.to_dictionary()
+        rectangle_dict = {'id': 3, 'x': 0, 'y': 0, 'height': 2, 'width': 5}
+        self.assertEqual(dictionary, rectangle_dict)
+
+
 if __name__ == '__main__':
-    unittest.main()
+    u.main()
