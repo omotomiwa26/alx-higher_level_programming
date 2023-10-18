@@ -4,7 +4,7 @@ This module defines the class Square
 that inherits from Rectangle
 """
 
-
+import json as j
 from models.rectangle import Rectangle
 
 
@@ -30,6 +30,9 @@ class Square(Rectangle):
     def size(self, size):
         self.width = size
         self.height = size
+
+    def __str__(self):
+        return (F'[Square] {self.id} {self.x}/{self.y} - {self.width}')
 
     def update(self, *args, **kwargs):
         """
@@ -60,5 +63,19 @@ class Square(Rectangle):
                     self.width = value
                     self.height = value
 
-    def __str__(self):
-        return (F'[Square] {self.id} {self.x}/{self.y} - {self.width}')
+    def to_dictionary(self):
+        """
+        Return a dictionary representation of the Sqaure.
+        Returns:
+        - A dictionary with the following keys:
+            - 'id': The id attribute of the Square
+            - 'size': The size attribute of the Square
+            - 'x': The x attribute of the Square
+            - 'y': The y attribute of the Square
+        """
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
