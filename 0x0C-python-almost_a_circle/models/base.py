@@ -128,7 +128,7 @@ class Base:
             return instances
         else:
             return []
-        
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """
@@ -148,7 +148,8 @@ class Base:
                 writer.writerow(["id", "size", "x", "y"])
             for obj in list_objs:
                 if cls.__name__ == "Rectangle":
-                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    writer.writerow([obj.id, obj.width, obj.height,
+                                     obj.x, obj.y])
                 elif cls.__name__ == "Square":
                     writer.writerow([obj.id, obj.size, obj.x, obj.y])
 
@@ -178,11 +179,13 @@ class Base:
             instance_list = []
             if cls.__name__ == "Rectangle":
                 for row in rows[1:]:
-                    instance = cls(int(row[1]), int(row[2]), int(row[3]), int(row[4]), int(row[0]))
+                    instance = cls(int(row[1]), int(row[2]), int(row[3]),
+                                   int(row[4]), int(row[0]))
                     instance_list.append(instance)
             elif cls.__name__ == "Square":
                 for row in rows[1:]:
-                    instance = cls(int(row[1]), int(row[2]), int(row[3]), int(row[0]))
+                    instance = cls(int(row[1]), int(row[2]),
+                                   int(row[3]), int(row[0]))
                     instance_list.append(instance)
 
             return instance_list
