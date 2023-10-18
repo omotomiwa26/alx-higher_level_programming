@@ -5,6 +5,7 @@ for the project
 """
 
 import json as j
+import os as o
 
 
 class Base:
@@ -80,7 +81,7 @@ class Base:
             return []
         json_list = j.loads(json_string)
         return json_list
-    
+
     @classmethod
     def create(cls, **dictionary):
         """
@@ -100,3 +101,29 @@ class Base:
         new_instance.update(**dictionary)
 
         return new_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Load a list of instances from a JSON file.
+        Args:
+        - cls: The class (e.g., Rectangle or Square) to
+        determine the filename.
+        Returns:
+        - A list of instances created from the data in the
+        JSON file, or an empty list if the file doesn't exist.
+        """
+        filename = cls.__name__ + ".json"
+
+        if not o.path.exists(filename):
+            return []
+
+        with open(filename, 'r') as file:
+            json_data = file.read()
+
+        if json_data:
+            dictionary_list = cls.from_json_string(json_data)
+            instances = [cls.create(**data) for data in dictionary_list]
+            return instances
+        else:
+            return []
