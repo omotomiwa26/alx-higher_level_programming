@@ -80,3 +80,23 @@ class Base:
             return []
         json_list = j.loads(json_string)
         return json_list
+    
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create an instance with attributes set based on the
+        provided dictionary.
+        Args:
+        - cls: The class to create an instance of
+        (e.g., Rectangle or Square).
+        - dictionary: A dictionary containing attribute
+        names and values.
+        Returns:
+        - An instance of the class with attributes set based
+        on the dictionary.
+        """
+        new_instance = cls(1, 1)
+
+        new_instance.update(**dictionary)
+
+        return new_instance
