@@ -31,5 +31,34 @@ class Square(Rectangle):
         self.width = size
         self.height = size
 
+    def update(self, *args, **kwargs):
+        """
+        Update the attributes of the Square using both
+        *args and **kwargs.
+        Arguments:
+        - args: A tuple of arguments in the following order:
+            1. id attribute
+            2. size attribute
+            3. x attribute
+            4. y attribute
+        - kwargs: A dictionary where each key
+        represents an attribute to update.
+        """
+        if args:
+            if len(args) > 0:
+                self.id = args[0]
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+                if key == 'size':
+                    self.width = value
+                    self.height = value
+
     def __str__(self):
         return (F'[Square] {self.id} {self.x}/{self.y} - {self.width}')
