@@ -43,4 +43,3 @@ class Base:
             return "[]"
         else:
             return j.dumps(list_dictionaries)
-
