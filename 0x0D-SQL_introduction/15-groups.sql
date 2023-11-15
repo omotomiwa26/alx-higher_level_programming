@@ -5,5 +5,6 @@
 
 SELECT score, COUNT(SCORE) as number
 FROM second_table
-GROUP BY score;
+GROUP BY score
+ORDER BY score DESC; 
 
