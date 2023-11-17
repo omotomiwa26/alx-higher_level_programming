@@ -5,17 +5,21 @@
 -- You can use a maximum of two SELECT statement
 -- The database name will be passed as an argument of the mysql command
 
-
-SELECT DISTINCT tv_shows.title
-FROM tv_shows
+SELECT tv_shows.title
+FROM 
+tv_shows
+WHERE title NOT IN
+(SELECT tv_shows.title
+FROM 
+tv_shows
 LEFT JOIN 
 tv_show_genres 
 ON 
 tv_shows.id = tv_show_genres.show_id
-WHERE tv_show_genres.genre_id IS NULL
-   OR tv_show_genres.genre_id <> (
-        SELECT id
-        FROM tv_genres
-        WHERE name = 'Comedy'
-   )
+LEFT JOIN 
+tv_genres 
+ON 
+tv_show_genres.genre_id = tv_genres.id
+WHERE tv_genres.name = 'Comedy')
+GROUP BY tv_shows.title
 ORDER BY tv_shows.title ASC;
