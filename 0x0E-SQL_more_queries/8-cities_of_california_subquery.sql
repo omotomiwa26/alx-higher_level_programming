@@ -4,8 +4,6 @@
 -- You are not allowed to use the JOIN keyword
 -- The database name will be passed as an argument of the mysql command
 
-USE hbtn_0d_usa;
-
 SELECT c.id, c.name
 FROM cities c
 WHERE c.state_id = (SELECT id FROM states WHERE name = 'California')
