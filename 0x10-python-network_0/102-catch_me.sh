@@ -1,0 +1,3 @@
+#!/bin/bash
+# This Bash Script makes a request to 0.0.0.0:5000/catch_me that causes the server to respond with a message containing You got me!, in the body of the response.
+curl -X PUT -Ls 0.0.0.0:5000/catch_me --data "user_id=98" -H "Origin: HolbertonSchool"
