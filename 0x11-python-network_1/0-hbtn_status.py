@@ -4,10 +4,10 @@ This Python script fetches https://alx-intranet.hbtn.io/status
 """
 
 if __name__ == "__main__":
-    import urllib.request
+    from urllib import request as r
 
     url = "https://alx-intranet.hbtn.io/status"
-    with urllib.request.urlopen(url) as response:
+    with r.urlopen(url) as response:
         html = response.read()
 
     print("Body response:")
