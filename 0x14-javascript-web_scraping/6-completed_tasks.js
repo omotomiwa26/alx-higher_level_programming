@@ -24,7 +24,7 @@ request(apiUrl, (error, response, body) => {
         return result;
       }, {});
 
-      console.log(JSON.stringify(completedTasksByUser, null, 2));
+      console.log(JSON.stringify(completedTasksByUser).replace(/"/g, "'"));
     } else {
       console.error('Error:', response.statusCode);
     }
