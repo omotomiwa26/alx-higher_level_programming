@@ -15,19 +15,16 @@ request(apiUrl, (error, response, body) => {
     console.error('Error:', error);
   } else {
     if (response.statusCode === 200) {
-      const tasksData = JSON.parse(body);
+      const todosData = JSON.parse(body);
 
-      const completedTasksByUser = {};
-
-      tasksData.forEach(task => {
-        if (task.completed) {
-          const userId = task.userId;
-          completedTasksByUser[userId] = (completedTasksByUser[userId] || 0) + 1;
+      const completedTasksByUser = todosData.reduce((result, todo) => {
+        if (todo.completed) {
+          result[todo.userId] = (result[todo.userId] || 0) + 1;
         }
-      });
-      for (const userId in completedTasksByUser) {
-        console.log(`${userId}: ${JSON.stringify(completedTasksByUser[userId], null, 2)}`);
-      }
+        return result;
+      }, {});
+
+      console.log(JSON.stringify(completedTasksByUser, null, 2));
     } else {
       console.error('Error:', response.statusCode);
     }
