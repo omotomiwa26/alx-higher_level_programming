@@ -21,7 +21,7 @@ request(apiUrl, (error, response, body) => {
       const charactersList = movieData.characters;
 
       charactersList.forEach((characterUrl) => {
-        request(characterUrl, (characterError, characterResponse, characterBody) => {
+        request.get(characterUrl, (characterError, characterResponse, characterBody) => {
           if (characterError) {
             console.error('Error:', characterError);
           } else {
